@@ -1,9 +1,14 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './header.css'
 import logo from '../../images/icons8-camping-65.png'
+import useAuth from '../Context/useAuth';
 const Header = () => {
+    const { user, isLoading, logOut } = useAuth()
+    if (isLoading) {
+        return <div className='text-center'><Spinner animation="border" variant="danger" /></div>
+    }
     return (
         <Navbar fluid collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -19,14 +24,22 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
-                        <NavLink to='/home'>  <Nav.Link href='/home'>Features</Nav.Link></NavLink>
-                        <NavLink to='/home'><Nav.Link href='/'>Pricing</Nav.Link></NavLink>
+                        <NavLink to='/home'>  <Nav.Link href='/home'>Home</Nav.Link></NavLink>
+                        <NavLink to='/allOrders'><Nav.Link href='/'>All orders</Nav.Link></NavLink>
+                        <NavLink to='/newSite'><Nav.Link href='/'>Add Site</Nav.Link></NavLink>
+                        <NavLink to='/myOrder'><Nav.Link href='/'>MyOrders</Nav.Link></NavLink>
 
                     </Nav>
                     <Nav>
-                        <NavLink to='/home'><Nav.Link href="#deets">More deets</Nav.Link></NavLink>
-                        <NavLink to='/home'><Nav.Link href="#deets">More deets</Nav.Link></NavLink>
-                        <NavLink to='/home'><Nav.Link href="#deets">More deets</Nav.Link></NavLink>
+                        {user.displayName && <Navbar.Text>
+                            Signed in as: <a href="#login">{user.displayName}</a>
+                        </Navbar.Text>}
+                        {user.displayName && <NavLink onClick={logOut}>LogOut</NavLink>
+                        }
+                        {!user.displayName && <NavLink to='/register'><Nav.Link href="#register">Register</Nav.Link></NavLink>
+                        }
+                        {!user.displayName && <NavLink to='/login'><Nav.Link href="#login">Login</Nav.Link></NavLink>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
