@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
-import Home from './Components/Home/Home';
 
 function App() {
   useEffect(() => {
@@ -18,8 +17,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path='/'><Home /></Route>
-          <Route path='/home'><Home /></Route>
+          <Route path='/'></Route>
+          <Route path='/'></Route>
           <Route path='/'></Route>
           <Route path='/'></Route>
           <Route path='/'></Route>
