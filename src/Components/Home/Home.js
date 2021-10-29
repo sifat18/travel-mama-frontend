@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import Slider from "react-slick";
 import './home.css'
@@ -7,11 +7,12 @@ import review from '../../images/icons8-message-58.png'
 import couple from '../../images/chermiti-mohamed-37-lm2otkas-unsplash.jpg'
 import check from '../../images/icons8-checked-radio-button-48.png'
 import plans from '../../images/icons8-camping-58.png'
+import useSiteData from '../DataLoad/sites';
+import useReviewData from '../DataLoad/reviews';
 const Home = () => {
-    const [sliderData, setsliderData] = useState([])
-    useEffect(() => {
-        fetch('/doctors.json').then(res => res.json()).then(data => setsliderData(data))
-    }, [])
+    const [reviews] = useReviewData()
+    const [site] = useSiteData()
+
     // slider setting
     const settings = {
         dots: true,
@@ -105,14 +106,14 @@ const Home = () => {
             <h2 className='text-center'><img src={plans} className='img-fluid ' alt="" />The Best Itinerary Destination</h2>
             <hr className='mx-auto w-50' />
             <Row xs={1} md={3} className="g-4">
-                {sliderData.map(data => (
+                {site.map(data => (
                     <Col>
                         <Card key={data.key} className='border-0 p-2' style={{ width: '' }}>
-                            <Card.Img variant="top" src={data.img} className='img-fluid picture px-5' />
+                            <Card.Img variant="top" src={data.img} className='img-fluid campic px-5' />
                             <Card.Body>
                                 <Card.Title className='text-center fw-bold'>{data.name}</Card.Title>
                                 <Card.Text>
-                                    {data.descript}
+                                    {data.descript.slice(0, 200)}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -128,14 +129,14 @@ const Home = () => {
                     <h2 className='fs-2 fw-bold  text-center '> <img src={review} alt="" /> <span className='text-danger'> Rev</span>iews</h2>
                     <hr className='mx-auto w-25 text-center' />
                     <Slider {...settings}>
-                        {sliderData.map(data => (
+                        {reviews.map(data => (
 
                             <Card key={data.key} className='border-0 p-2' style={{ width: '' }}>
                                 <Card.Img variant="top" src={data.img} className='img-fluid picture px-5' />
                                 <Card.Body>
                                     <Card.Title className='text-center fw-bold'>{data.name}</Card.Title>
                                     <Card.Text>
-                                        {data.descript}
+                                        {data.descript.slice(0, 250)}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>

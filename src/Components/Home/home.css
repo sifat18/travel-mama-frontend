@@ -68,12 +68,20 @@ video{
     left: 100px;
 }
 
+/* camp picture */
+.campic{ 
+    height: 350px;
+    width: 100%;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        object-fit : contain ;
+  }
+
 /* slider images */
 .picture{
-    height: 200px;
+    height: 250px;
     width: 100%;
-    clip-path: circle();
-    object-fit : contain ;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+        object-fit : contain ;
   }
 
   /* slider buttons */
