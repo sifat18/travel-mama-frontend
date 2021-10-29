@@ -8,10 +8,11 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
-import Login from './Components/Login/Login';
 import Authprovider from './Components/AuthProvider/Authprovider';
 import Register from './Components/Register/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Details from './Components/Details/Details';
+import Login from './Components/Login/Login';
 
 function App() {
   useEffect(() => {
@@ -27,7 +28,8 @@ function App() {
           <PrivateRoute path='/allOrders'></PrivateRoute>
           <PrivateRoute path='/newSite'></PrivateRoute>
           <PrivateRoute path='/myOrder'></PrivateRoute>
-          <Route path='/login'><Login /></Route>
+          <PrivateRoute path='/sites/:id'><Details></Details></PrivateRoute>
+          <Route path='/login'><Login></Login></Route>
           <Route path='/register'><Register></Register></Route>
         </Switch>
         <Footer />

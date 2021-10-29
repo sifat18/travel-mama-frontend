@@ -26,15 +26,17 @@ const useFirebase = () => {
             .catch((error) => {
                 seterror(error.message);
                 // ..
-                setisLoading(true)
-            }).finally(() => setisLoading(false));
-    }
+            }).finally(() => {
+                setisLoading(false)
+            });
+    };
+
     // updateProfile
     const setName = (name) => {
         setisLoading(true)
 
         updateProfile(auth.currentUser, { displayName: name })
-            .then(() => { });
+            .then(result => { });
     }
     // google sign
     const signGoogle = () => {
@@ -71,8 +73,9 @@ const useFirebase = () => {
                 // ...
                 setuser({})
             }
+            setisLoading(false)
+
         });
-        setisLoading(false)
     }, [])
     // signoUT
     const logOut = () => {

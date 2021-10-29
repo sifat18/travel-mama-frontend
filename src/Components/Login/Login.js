@@ -8,8 +8,8 @@ import google from './icons8-google.svg';
 import useAuth from '../Context/useAuth';
 const Login = () => {
     const { signGoogle, emailPass, setisLoading } = useAuth()
-    const location = useLocation()
-    const history = useHistory()
+    const location = useLocation();
+    const history = useHistory();
     const redirect_url = location.state?.from || '/home';
 
     //  google login

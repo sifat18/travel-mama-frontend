@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Button, Col, Container, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import Slider from "react-slick";
 import './home.css'
 import b2 from '../../images/b2.mp4'
@@ -108,22 +109,24 @@ const Home = () => {
             <Row xs={1} md={3} className="g-4">
                 {site.map(data => (
                     <Col>
-                        <Card key={data.key} className='border-0 p-2' style={{ width: '' }}>
+                        <Card key={data.key} className="text-center border-0 p-2">
                             <Card.Img variant="top" src={data.img} className='img-fluid campic px-5' />
                             <Card.Body>
                                 <Card.Title className='text-center fw-bold'>{data.name}</Card.Title>
-                                <Card.Text>
-                                    {data.descript.slice(0, 200)}
-                                </Card.Text>
+                                <Card.Text>{data.descript.slice(0, 200)}</Card.Text>
+                                <Card.Text className=' fs-3 fw-bold'>Only at a rate of ${data.price}</Card.Text>
+                                {console.log(data._id)}
+                                <NavLink to={`/sites/${data._id}`}><Button variant="warning" className='text-dark'>visit for more details</Button></NavLink>
                             </Card.Body>
+                            <Card.Footer className="text-muted">2 days ago</Card.Footer>
                         </Card>
-
                     </Col>
-                ))}
+                ))
+                }
 
-            </Row>
+            </Row >
             {/* slider */}
-            <Row className='my-5'>
+            < Row className='my-5' >
 
                 <Container className='slideWidth'>
                     <h2 className='fs-2 fw-bold  text-center '> <img src={review} alt="" /> <span className='text-danger'> Rev</span>iews</h2>
@@ -145,7 +148,7 @@ const Home = () => {
                     </Slider>
                 </Container>
 
-            </Row>
+            </Row >
 
         </Container >
     );
