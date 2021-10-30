@@ -5,9 +5,12 @@ import useAuth from '../Context/useAuth';
 import './myorder.css'
 const MyOrders = () => {
     const [orders, setorders] = useState([])
+    // for modals display
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    // remove reservation
     const handleremove = (id) => {
         let check = window.confirm("Do U want to delete?");
         if (check) {
@@ -20,12 +23,13 @@ const MyOrders = () => {
         }
         handleShow()
     }
-
+    // data load by email
     const { user } = useAuth()
     useEffect(() => {
         fetch(`https://enigmatic-earth-69756.herokuapp.com/order/${user.email}`).then(res => res.json()).then(data => setorders(data))
     }, [])
     return (
+        // booked data
         <Container fluid className='myorderbg py-5'>
             <Row xs={1} md={2} className="g-4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                 {orders.map(data =>
@@ -45,6 +49,7 @@ const MyOrders = () => {
                     </Col>
                 )}
             </Row>
+            {/* modals  */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>DHUUURU</Modal.Title>

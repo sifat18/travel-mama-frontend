@@ -1,5 +1,5 @@
 const { useState, useEffect } = require("react");
-
+// data for home slider
 const useReviewData = () => {
     const [reviews, setreviews] = useState([])
     useEffect(() => {

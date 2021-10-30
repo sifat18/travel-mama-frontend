@@ -1,5 +1,5 @@
 const { useState, useEffect } = require("react");
-
+// data for home cards
 const useSiteData = () => {
     const [site, setsite] = useState([])
     useEffect(() => {

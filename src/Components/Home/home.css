@@ -1,10 +1,11 @@
+/* video styles */
 .top-video{
     background-color: black;
-
 }
 video{
     opacity: 0.8;
 }
+/* blue screen */
 .overlay
 {
   position: absolute;
@@ -15,7 +16,7 @@ video{
   background: #03a9f4;
   mix-blend-mode: overlay;
 }
-
+/* video text style */
 .text
 {
   position: absolute;
@@ -48,7 +49,7 @@ video{
   font-weight: 400;
   max-width: 700px;
 }
-/*  about*/
+/*  about section*/
 .about h1{
     opacity: 0.1;
     font-size: 5rem;
@@ -67,8 +68,13 @@ video{
     top:-48px;
     left: 100px;
 }
+/* about img */
+.one-edge-shadow {
+	box-shadow: 0.5rem 0.5rem rgb(133, 98, 98), -0.5rem -0.5rem #ccc;
+}
+/* site data styles */
 .homeCard{
-  background-color: #ffd16d;
+  background-color: #ffd16dd8;
   transform: perspective(900px) rotateY(15deg);
   transition: transform 1s ease 0s;
   /* border-radius: 1rem; */
@@ -79,9 +85,11 @@ video{
   transform: scale(1.1); 
   transform: perspective(3000px) rotateY(5deg);
 }
+/* heading  */
 .cardtext{
   color: #345B63;
 }
+/* review card style */
 .reviw{
   position: relative;
   top:-4.5rem;
@@ -98,9 +106,7 @@ transition: 0.4s ease-in-out transform;
 .reviw:hover {
   transform: translate3d(0px, 0px, -250px);
 }
-.one-edge-shadow {
-	box-shadow: 0.5rem 0.5rem rgb(133, 98, 98), -0.5rem -0.5rem #ccc;
-}
+
 /* camp picture */
 .campic{ 
     height: 350px;
@@ -131,6 +137,7 @@ background:brown;
 .slideWidth{
     width: 80%;
 }
+/* video display according to screen display */
 @media (max-width:1160px) {
     .overlay{
      height: 640px;

@@ -1,26 +1,27 @@
+/* details bg */
 .detailsbg{
     background-image: url('https://images.unsplash.com/photo-1501963917309-56546c33e19d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2NlbmljJTIwZGFya3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');
     background-position: center;
     background-size: 100% 100%;
     min-height: 500px;
       }
+      /* site pic style */
 .detail-pic{ 
     height: 500px;
     width: 100%;
     object-fit : contain ;
   }
-
+/* form style */
 .order{
     background-color: rgba(55, 20, 119, 0.308);
     padding: 5px;
     min-height: 200px;
     min-width: 300px;
 }
-
+/* form inputs */
 .reservation{
     display: block;
     box-sizing: border-box;
-    /* width: 80%; */
     border-radius: 4px;
     border: 1px solid black;
     padding: 10px 15px;

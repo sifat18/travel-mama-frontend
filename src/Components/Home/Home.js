@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Col, Container, Row } from 'react-bootstrap';
+import { Card, Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Slider from "react-slick";
 import './home.css'
@@ -11,6 +11,7 @@ import plans from '../../images/icons8-camping-58.png'
 import useSiteData from '../DataLoad/sites';
 import useReviewData from '../DataLoad/reviews';
 const Home = () => {
+    // loading data from external file
     const [reviews] = useReviewData()
     const [site] = useSiteData()
 
@@ -52,13 +53,14 @@ const Home = () => {
     };
     return (
         <Container fluid >
-            {/* video */}
+            {/* video section*/}
             <Row className='top-video' >
                 <video loop="true" autoplay="autoplay" muted >
                     <source src={b2} type='video/mp4' />
                 </video>
-
+                {/* blue screen */}
                 <div className='overlay'></div>
+                {/* video text */}
                 <div className='d-flex flex-column justify-content-start align-items-center'>
                     <div className="text " data-aos="fade-right">
                         <h2>Never Stop To </h2>
@@ -83,7 +85,7 @@ const Home = () => {
                         we focus on wandering with travelers—before, during and after <br />their trip.
                         "You'll Never Roam Alone®," holds true today as we<br /> continue to make it our mission to remove the <br />barriers to enjoyable travel experiences.</p>
 
-
+                    {/* key points */}
                     <Row >
                         <h3 className='fs-3 fw-bold text-center mb-5' data-aos="fade-left">We Provide You Best Activity & Unforgettable Experience</h3>
 
@@ -103,27 +105,35 @@ const Home = () => {
                 </Col>
 
             </Row>
+
             {/* services */}
+
             <h2 className='text-center fw-bold' data-aos="fade-up-right"><img src={plans} className='img-fluid ' alt="" /><span className='cardtext'>The Best Itinerary</span> Destination</h2>
             <hr className='mx-auto w-50' />
             <Row xs={1} md={3} className="g-4" data-aos="flip-left">
-                {site.map(data => (
-                    <Col>
-                        <Card key={data.key} className="text-center border-0  p-2 homeCard box-shadow-3d">
-                            <Card.Img variant="top" src={data.img} className='img-fluid campic px-5' />
-                            <Card.Body>
-                                <Card.Title className='text-center fw-bold'>{data.name}</Card.Title>
-                                <Card.Text className='fs-4'>{data.descript.slice(0, 200)}</Card.Text>
-                                <Card.Text className=' fs-3 fw-bold'>Only at a rate of ${data.price}</Card.Text>
-                                {console.log(data._id)}
-                                <NavLink to={`/sites/${data._id}`}><Button variant="info" className='text-dark fw-bold'>Reserve Today</Button></NavLink>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))
+                {!site ?
+                    <div className='text-center'><Spinner animation="border" variant="danger" /></div>
+                    :
+                    <div>
+                        {site.map(data => (
+                            <Col>
+                                <Card key={data.key} className="text-center border-0  p-2 homeCard box-shadow-3d">
+                                    <Card.Img variant="top" src={data.img} className='img-fluid campic px-5' />
+                                    <Card.Body>
+                                        <Card.Title className='text-center fw-bold'>{data.name}</Card.Title>
+                                        <Card.Text className='fs-4'>{data.descript.slice(0, 200)}</Card.Text>
+                                        <Card.Text className=' fs-3 fw-bold'>Only at a rate of ${data.price}</Card.Text>
+                                        {console.log(data._id)}
+                                        <NavLink to={`/sites/${data._id}`}><Button variant="info" className='text-dark fw-bold'>Reserve Today</Button></NavLink>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        ))
+                        }
+                    </div>
                 }
-
             </Row >
+
             {/* slider */}
             < Row className='my-5' >
 

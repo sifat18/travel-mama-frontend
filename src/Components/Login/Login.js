@@ -58,6 +58,7 @@ const Login = () => {
                         <button className='btn bg-white border border-1 mb-5 ' onClick={handleLogin} > <img src={google} alt="" height='30' width='30' /> Google Sign In</button>
                     </div>
                 </Col>
+                {/* login image */}
                 <Col xs={12} md={6} className='order-md-2 order-1'>
                     <img src={pic3} alt="" className='img-fluid' />
 

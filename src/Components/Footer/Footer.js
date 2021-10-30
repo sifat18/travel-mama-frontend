@@ -10,11 +10,13 @@ const Footer = () => {
     return (
         <Container fluid className='footer  ps-5'>
             <Row className='mt-5 pt-5'>
+                {/*  footer img */}
                 <Col xs={12} md={4} className='social ps-5'>
                     <img src={footImg} alt="" height='150' width='150' />
                 </Col>
                 <Col xs={12} md={6}>
                     <Row >
+                        {/* footer notes */}
                         <Col xs={12} md={6} className='mb-5'>
                             <p>About us</p>
                             <p>Our Services</p>

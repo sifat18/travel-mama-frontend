@@ -5,7 +5,9 @@ import './header.css'
 import logo from '../../images/icons8-camping-65.png'
 import useAuth from '../Context/useAuth';
 const Header = () => {
+    // getting user data
     const { user, isLoading, logOut } = useAuth()
+    // show spinner if until user data found
     if (isLoading) {
         return <div className='text-center'><Spinner animation="border" variant="danger" /></div>
     }
@@ -31,6 +33,7 @@ const Header = () => {
 
                     </Nav>
                     <Nav variant="pills">
+                        {/* conditional display */}
                         {user.displayName && <Navbar.Text>
                             Signed in as: <a href="#login">{user.displayName}</a>
                         </Navbar.Text>}

@@ -1,19 +1,18 @@
-# Getting Started with Create React App
+# Travel Mama- The best travel site you can ask for
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the site link [Travel MAMA](https://tour-front.web.app/home).
 
-## Available Scripts
+## So What services does Travel MAMA provide??
 
-In the project directory, you can run:
+For city dwellers its hard to find the perfect spot for vacation. Keeping that in mind this Travel-MAMA was created. Why the name Travel-MAMA ? So that the happiness off traveling starts just from hearing our name! Here at Travel mama we offer various suggestive spots where one can enjoy there vacation at scenic place. We provide all the information that a traveller needs to know
 
-### `npm start`
+### `What are top-5 functionalities?`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
+- If you found a new spot no one knows then you can easily add that spot here
+- You can view everyones travel reservation as well as update/delete them
+- Reserve the spot you want to visit 
+- Reviews about the places other people have visited
+- Project included axios, react-bootstrap, react-hook-form, express-js, mongodb 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
