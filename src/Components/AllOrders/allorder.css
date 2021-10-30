@@ -1,0 +1,8 @@
+.allorderbg{
+        /* background-color: #C996CC; */
+        background-image: url('https://images.unsplash.com/photo-1502989642968-94fbdc9eace4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHNjZW5pY3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');
+        background-position: center;
+        background-size: 100% 100%;
+        min-height: 500px;
+          
+    }

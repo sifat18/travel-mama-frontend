@@ -1,0 +1,27 @@
+.myorderbg{
+    /* background-color: #C996CC; */
+    background-image: url('https://images.unsplash.com/photo-1594329852649-012d9528deda?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2NlbmljfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');
+background-position: center;
+background-size: 100% 100%;
+min-height: 500px;
+  }
+.orderCard{
+background-color: #FEF9EF;
+}
+.box1 {
+  background-color: rgba(0,0,0,.5);
+    color: #fff;
+}
+
+.orderPic{
+    height:600px;
+    width: 100%;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+object-fit: cover;}
+.zoom {
+    transition: transform .2s; 
+  }
+  
+  .zoom:hover {
+    transform: scale(0.9); 
+  }

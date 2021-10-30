@@ -1,5 +1,12 @@
+.newsitebg{
+        /* background-color: #C996CC; */
+        background-image: url('https://images.unsplash.com/photo-1577456020912-85d0604ad403?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGF1cm9yYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');
+        background-position: center;
+        background-size: 100% 100%;
+        min-height: 500px;
+          }
 .addForm{
-background-color: #ff865ec4;
+background-color: #c4c4c462;
 padding: 5px;
 min-height: 200px;
 min-width: 350px;
@@ -11,10 +18,16 @@ background-color: #e6d14e;
 input[type=number] {
     -moz-appearance: textfield;
   }
-@media (min-width:600px) and (max-width:980px){
+.headcolor{
+color: #000D6B;
+}
+.headcolor2{
+color: #3F3351;
+}
+@media (min-width:580px) and (max-width:980px){
     .space{
-        margin-left: 2.5rem;
-        width: 100%;
+        margin: 0 1rem;
+        width: 98%;
         height: 500px;
     }
 }

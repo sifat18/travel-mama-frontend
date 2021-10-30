@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Modal, Table, Button } from 'react-bootstrap';
 import deleImg from './icons8-delete-64.png';
 import updateImg from './icons8-update-64.png';
+import './allorder.css';
 
 const AllOrder = () => {
     const [orderData, setorderData] = useState([])
@@ -12,13 +13,13 @@ const AllOrder = () => {
     const handleClose = () => setShow(false);
     let count = 0;
     useEffect(() => {
-        fetch(`http://localhost:7000/orders`).then(res => res.json()).then(data => setorderData(data))
+        fetch(`https://enigmatic-earth-69756.herokuapp.com/orders`).then(res => res.json()).then(data => setorderData(data))
     }, [modifiid])
 
     const handleremove = (id) => {
         let check = window.confirm("Do U want to delete?");
         if (check) {
-            axios.delete(`http://localhost:7000/order/${id}`).then(res => {
+            axios.delete(`https://enigmatic-earth-69756.herokuapp.com/order/${id}`).then(res => {
                 if (res.data) {
                     const collect = orderData.filter(order => order._id !== id)
                     setorderData(collect);
@@ -31,7 +32,7 @@ const AllOrder = () => {
     const handleUpdate = (id) => {
         let check = window.confirm("Do U want to update?");
         if (check) {
-            axios.put(`http://localhost:7000/orderUpdate/${id}`).then(res => {
+            axios.put(`https://enigmatic-earth-69756.herokuapp.com/orderUpdate/${id}`).then(res => {
                 if (res.data.modifiedCount) {
                     setmodifiid(true)
                 }
@@ -41,27 +42,27 @@ const AllOrder = () => {
     }
 
     return (
-        <Container className='my-5'>
-            <Table responsive striped bordered hover>
+        <Container fluid className='pt-3   text-center allorderbg'>
+            <Table responsive striped bordered hover >
                 <thead>
                     <tr className='text-center'>
-                        <th>Sl</th>
-                        <th>UserName</th>
-                        <th>Reserved Spot</th>
-                        <th>Status</th>
-                        <th>Delete</th>
-                        <th>Update Status</th>
+                        <th className='fs-3 text-white'>Sl</th>
+                        <th className='fs-3 text-white'>UserName</th>
+                        <th className='fs-3 text-white'>Reserved Spot</th>
+                        <th className='fs-3 text-white'>Status</th>
+                        <th className='fs-3 text-white'>Delete</th>
+                        <th className='fs-3 text-white'>Update Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     {orderData.map(order =>
-                        <tr className='text-center'>
-                            <td>{++count}</td>
-                            <td>{order.Name}</td>
-                            <td>{order.site.name}</td>
-                            <td>{order.orderStatus}</td>
-                            <td><button type='button' onClick={() => handleremove(order?._id)} className='d-block border-0 mx-auto'><img src={deleImg} alt="" className='img-fluid  ' /></button></td>
-                            <td><button type='button' onClick={() => handleUpdate(order?._id)} className='d-block border-0 mx-auto'><img src={updateImg} alt="" className='img-fluid ' /></button></td>
+                        <tr key={order._id} className='text-center'>
+                            <td className='fs-4 text-white '>{++count}</td>
+                            <td className='fs-4 text-white '>{order.Name}</td>
+                            <td className='fs-4 text-white '>{order.site.name}</td>
+                            <td className='fs-4 text-white fw-bold'><span className={order.orderStatus === 'Pending' ? 'text-danger' : 'text-success'}>{order.orderStatus}</span></td>
+                            <td className='fs-4 text-white '><button type='button' onClick={() => handleremove(order?._id)} className='d-block border-0 mx-auto'><img src={deleImg} alt="" className='img-fluid  ' /></button></td>
+                            <td className='fs-4 text-white '><button type='button' onClick={() => handleUpdate(order?._id)} className='d-block border-0 mx-auto'><img src={updateImg} alt="" className='img-fluid ' /></button></td>
                         </tr>
                     )}
                 </tbody>

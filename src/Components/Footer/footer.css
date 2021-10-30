@@ -1,8 +1,10 @@
 .footer{
     background-color:black;
-    margin-top: 10rem;
-    min-height: 300px;
+    /* margin-top: 10rem; */
+    min-height: 310px;
     color: floralwhite;
+    position: relative;
+    padding-top: 20px;
 }
 @media (max-width:700px) {
     .social{
