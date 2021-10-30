@@ -10,7 +10,7 @@ const Header = () => {
         return <div className='text-center'><Spinner animation="border" variant="danger" /></div>
     }
     return (
-        <Navbar fluid collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar sticky="top" fluid collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <NavLink to='/home'> <Navbar.Brand href="#home">
                     <img
@@ -23,14 +23,14 @@ const Header = () => {
                 <Navbar.Brand className='fw-bold' href="#home">TRAVEL~MAMA</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="ms-auto">
+                    <Nav variant="pills" className="ms-auto">
                         <NavLink to='/home'>  <Nav.Link href='/home'>Home</Nav.Link></NavLink>
-                        <NavLink to='/allOrders'><Nav.Link href='/home'>All orders</Nav.Link></NavLink>
-                        <NavLink to='/newSite'><Nav.Link href='/home'>Add Site</Nav.Link></NavLink>
-                        <NavLink to='/myOrder'><Nav.Link href='/home '>MyReservations</Nav.Link></NavLink>
+                        <NavLink to='/allOrders'><Nav.Link href='/allOrders'>All orders</Nav.Link></NavLink>
+                        <NavLink to='/newSite'><Nav.Link href='/newSite'>Add Site</Nav.Link></NavLink>
+                        <NavLink to='/myOrder'><Nav.Link href='/myOrder '>MyReservations</Nav.Link></NavLink>
 
                     </Nav>
-                    <Nav>
+                    <Nav variant="pills">
                         {user.displayName && <Navbar.Text>
                             Signed in as: <a href="#login">{user.displayName}</a>
                         </Navbar.Text>}

@@ -4,7 +4,7 @@
     object-fit : contain ;
   }
 
-form{
+.order{
     background-color: rgba(54, 20, 119, 0.76);
     padding: 5px;
     min-height: 200px;

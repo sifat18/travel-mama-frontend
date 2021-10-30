@@ -12,12 +12,12 @@ const Details = () => {
     const { id } = useParams()
     const { register, handleSubmit, reset } = useForm();
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const onSubmit = data => {
         reset('');
         data.site = siteData;
+        data.orderStatus = 'Pending';
         axios.post('http://localhost:7000/order', data).then(res => res.data.insertedId ? handleShow() : '')
 
     }
@@ -42,7 +42,7 @@ const Details = () => {
                 </Col>
                 <Col xs={12} md={6} className='mb-5 pb-5'>
                     <img src={pic} alt="" className='img-fluid w-50 h-50 d-block mx-auto' />
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form className='order' onSubmit={handleSubmit(onSubmit)}>
                         <h2 className='text-center mt-5  fw-bold'> Reserve Your Spot Today!!!</h2>
                         <input required placeholder='Name' defaultValue={user.displayName} className='reservation w-75' {...register("Name")} />
                         <input required placeholder='email' defaultValue={user.email} className='reservation w-75'{...register("email")} />
@@ -58,15 +58,12 @@ const Details = () => {
             </Row>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Success</Modal.Title>
+                    <Modal.Title>YAYYYYYYY</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, Your reservation Complete</Modal.Body>
+                <Modal.Body>MAMA TOUR E NIA JAITEEEESEEEEE</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                    <Button variant="success" onClick={handleClose}>
+                        MAMA TUMI JOSS!
                     </Button>
                 </Modal.Footer>
             </Modal>
