@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { Card, Button, Col, Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Slider from "react-slick";
 import './home.css'
@@ -111,26 +111,21 @@ const Home = () => {
             <h2 className='text-center fw-bold' data-aos="fade-up-right"><img src={plans} className='img-fluid ' alt="" /><span className='cardtext'>The Best Itinerary</span> Destination</h2>
             <hr className='mx-auto w-50' />
             <Row xs={1} md={3} className="g-4" data-aos="flip-left">
-                {!site ?
-                    <div className='text-center'><Spinner animation="border" variant="danger" /></div>
-                    :
-                    <div>
-                        {site.map(data => (
-                            <Col>
-                                <Card key={data.key} className="text-center border-0  p-2 homeCard box-shadow-3d">
-                                    <Card.Img variant="top" src={data.img} className='img-fluid campic px-5' />
-                                    <Card.Body>
-                                        <Card.Title className='text-center fw-bold'>{data.name}</Card.Title>
-                                        <Card.Text className='fs-4'>{data.descript.slice(0, 200)}</Card.Text>
-                                        <Card.Text className=' fs-3 fw-bold'>Only at a rate of ${data.price}</Card.Text>
-                                        {console.log(data._id)}
-                                        <NavLink to={`/sites/${data._id}`}><Button variant="info" className='text-dark fw-bold'>Reserve Today</Button></NavLink>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))
-                        }
-                    </div>
+
+                {site.map(data => (
+                    <Col>
+                        <Card key={data.key} className="text-center border-0  p-2 homeCard box-shadow-3d">
+                            <Card.Img variant="top" src={data.img} className='img-fluid campic px-5' />
+                            <Card.Body>
+                                <Card.Title className='text-center fw-bold'>{data.name}</Card.Title>
+                                <Card.Text className='fs-4'>{data.descript.slice(0, 200)}</Card.Text>
+                                <Card.Text className=' fs-3 fw-bold'>Only at a rate of ${data.price}</Card.Text>
+                                {console.log(data._id)}
+                                <NavLink to={`/sites/${data._id}`}><Button variant="info" className='text-dark fw-bold'>Reserve Today</Button></NavLink>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))
                 }
             </Row >
 
