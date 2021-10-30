@@ -3,6 +3,7 @@ import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useAuth from '../Context/useAuth';
 import './detail.css';
+import buddy from './buddy-30.png';
 import pic from './marginalia-location-access.png'
 import { useForm } from "react-hook-form";
 import axios from 'axios';
@@ -36,7 +37,7 @@ const Details = () => {
                 <Col xs={12} md={6}>
                     <h1 className='text-center mt-5  fw-bold' >{siteData?.name}</h1>
                     <img src={siteData?.img} alt="" className='img-fluid detail-pic' />
-                    <h3 className='text-center fw-bold mt-1'>Cost Per day: ${siteData?.price}</h3>
+                    <h3 className='text-center fw-bold mt-3'>Cost Per day: ${siteData?.price}</h3>
                     <p>{siteData?.descript}</p>
 
                 </Col>
@@ -44,6 +45,7 @@ const Details = () => {
                     <img src={pic} alt="" className='img-fluid w-50 h-50 d-block mx-auto' />
                     <form className='order' onSubmit={handleSubmit(onSubmit)}>
                         <h2 className='text-center mt-5  fw-bold'> Reserve Your Spot Today!!!</h2>
+                        <img src={buddy} alt="" className='img-fluid w-50 h-25 d-block mx-auto' />
                         <input required placeholder='Name' defaultValue={user.displayName} className='reservation w-75' {...register("Name")} />
                         <input required placeholder='email' defaultValue={user.email} className='reservation w-75'{...register("email")} />
                         <input required placeholder='adrress' className='reservation w-75'{...register("Adrress")} />
