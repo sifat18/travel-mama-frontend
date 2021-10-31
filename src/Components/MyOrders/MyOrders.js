@@ -28,9 +28,12 @@ const MyOrders = () => {
     useEffect(() => {
         fetch(`https://enigmatic-earth-69756.herokuapp.com/order/${user.email}`).then(res => res.json()).then(data => setorders(data))
     }, [])
+
     return (
         // booked data
         <Container fluid className='myorderbg py-5'>
+            <h2 className='text-white fs-3 fw-bold text-center mb-3'> My Orders</h2>
+            {!orders.length && <p className='text-white fs-3 fw-bold text-start mb-3'> You don't have any pending reservation yet!!</p>}
             <Row xs={1} md={2} className="g-4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                 {orders.map(data =>
                     <Col>

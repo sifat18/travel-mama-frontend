@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Col, Container, Row } from 'react-bootstrap';
+import { Card, Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Slider from "react-slick";
 import './home.css'
@@ -111,7 +111,8 @@ const Home = () => {
 
             <h2 className='text-center fw-bold' data-aos="fade-up-right"><img src={plans} className='img-fluid ' alt="" /><span className='cardtext'>The Best Itinerary</span> Destination</h2>
             <hr className='mx-auto w-50' />
-            <Row xs={1} md={3} className="g-4" data-aos="flip-left">
+            {!site.length && <div className='text-center'><Spinner animation="border" variant="danger" /></div>}
+            {site.length && <Row xs={1} md={3} className="g-4" data-aos="flip-left">
 
                 {site.map(data => (
                     <Col>
@@ -128,7 +129,7 @@ const Home = () => {
                     </Col>
                 ))
                 }
-            </Row >
+            </Row >}
 
             {/* slider */}
             < Row className='my-5' >
