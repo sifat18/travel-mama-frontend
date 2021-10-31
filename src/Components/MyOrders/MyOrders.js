@@ -38,7 +38,7 @@ const MyOrders = () => {
                             <Card.Img variant="top" src={data?.site.img} className='img-fluid orderPic' />
                             <Card.Body>
                                 <Card.Title className='text-center fw-bold'>{data?.site.name}</Card.Title>
-                                <Card.Text className=' fs-4'>{data?.site.descript.slice(0, 200)}</Card.Text>
+                                {/* <Card.Text className=' fs-4'>{data?.site.descript.slice(0, 200)}</Card.Text> */}
                                 <Card.Text className=' fs-3 fw-bold'>Cost ${data?.site.price}</Card.Text>
                                 {console.log(data._id)}
                                 <Button variant="warning" onClick={() => handleremove(data?._id)} className='text-dark fs-5 fw-bold'>Cancel Reservation</Button>
