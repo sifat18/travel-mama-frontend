@@ -307,8 +307,9 @@ text-align: center;
   font-size: 0.8rem;
   max-width: 300px;
 }
-.dekho{
-    display: none;
 }
+@media (max-width:480px) {
+  .overlay{
+    height: 250px;
+  }
 }
-
