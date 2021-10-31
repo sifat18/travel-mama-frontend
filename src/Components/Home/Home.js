@@ -65,10 +65,10 @@ const Home = () => {
                     <div className="text " data-aos="fade-right">
                         <h2>Never Stop To </h2>
                         <h3>Exploring The World</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat.</p>
+                        <p>If you’re twenty-two, physically fit, hungry to learn and be better,
+                            I urge you to travel – as far and as widely as possible. Sleep on floors
+                            if you have to. Find out how other people live and eat and cook.
+                            Learn from them – wherever you go</p>
                     </div>
                 </div>
             </Row>
@@ -121,7 +121,7 @@ const Home = () => {
                                 <Card.Text className='fs-4'>{data.descript.slice(0, 200)}</Card.Text>
                                 <Card.Text className=' fs-3 fw-bold'>Only at a rate of ${data.price}</Card.Text>
                                 {console.log(data._id)}
-                                <NavLink to={`/sites/${data._id}`}><Button variant="info" className='text-dark fw-bold'>Reserve Today</Button></NavLink>
+                                <NavLink to={`/sites/${data._id}`}><Button className='btnCard fw-bold'>Reserve Today</Button></NavLink>
                             </Card.Body>
                         </Card>
                     </Col>

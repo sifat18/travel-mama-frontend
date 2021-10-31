@@ -27,13 +27,9 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav variant="pills" className="ms-auto">
                         <NavLink to='/home'>  <Nav.Link href='/home'>Home</Nav.Link></NavLink>
-                        <NavLink to='/allOrders'><Nav.Link href='/allOrders'>All orders</Nav.Link></NavLink>
-                        <NavLink to='/newSite'><Nav.Link href='/newSite'>Add Site</Nav.Link></NavLink>
-                        <NavLink to='/myOrder'><Nav.Link href='/myOrder '>MyReservations</Nav.Link></NavLink>
-
-                    </Nav>
-                    <Nav variant="pills">
-                        {/* conditional display */}
+                        {user.displayName && <NavLink to='/allOrders'><Nav.Link href='/allOrders'>All Reservations</Nav.Link></NavLink>}
+                        {user.displayName && <NavLink to='/newSite'><Nav.Link href='/newSite'>Add Site</Nav.Link></NavLink>}
+                        {user.displayName && <NavLink to='/myOrder'><Nav.Link href='/myOrder '>MyReservations</Nav.Link></NavLink>}
                         {user.displayName && <Navbar.Text>
                             Signed in as: <a href="#login">{user.displayName}</a>
                         </Navbar.Text>}
@@ -44,9 +40,10 @@ const Header = () => {
                         {!user.displayName && <NavLink to='/login'><Nav.Link href="#login">Login</Nav.Link></NavLink>
                         }
                     </Nav>
+
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 };
 
