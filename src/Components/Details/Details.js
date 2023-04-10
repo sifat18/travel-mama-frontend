@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Container, Modal, Row, Button } from 'react-bootstrap';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import useAuth from '../Context/useAuth';
 import './detail.css';
-import pic from './marginalia-location-access.png'
-import { useForm } from "react-hook-form";
-import axios from 'axios';
+import pic from './marginalia-location-access.png';
 const Details = () => {
     const [siteData, setsiteData] = useState({})
     const { user } = useAuth();
@@ -19,12 +19,12 @@ const Details = () => {
         reset('');
         data.site = siteData;
         data.orderStatus = 'Pending';
-        axios.post('https://enigmatic-earth-69756.herokuapp.com/order', data).then(res => res.data.insertedId ? handleShow() : '')
+        axios.post('https://travelmama.onrender.com/order', data).then(res => res.data.insertedId ? handleShow() : '')
 
     }
     // fetching data from database
     useEffect(() => {
-        fetch(`https://enigmatic-earth-69756.herokuapp.com/site/${id}`).then(res => res.json()).then(data => setsiteData(data))
+        fetch(`https://travelmama.onrender.com/site/${id}`).then(res => res.json()).then(data => setsiteData(data))
     }, [])
 
 

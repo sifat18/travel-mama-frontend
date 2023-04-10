@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Button, Modal } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { Button, Card, Col, Container, Modal, Row } from 'react-bootstrap';
 import useAuth from '../Context/useAuth';
-import './myorder.css'
+import './myorder.css';
 const MyOrders = () => {
     const [orders, setorders] = useState([])
     // for modals display
@@ -14,7 +14,7 @@ const MyOrders = () => {
     const handleremove = (id) => {
         let check = window.confirm("Do U want to delete?");
         if (check) {
-            axios.delete(`https://enigmatic-earth-69756.herokuapp.com/order/${id}`).then(res => {
+            axios.delete(`https://travelmama.onrender.com/order/${id}`).then(res => {
                 if (res.data) {
                     const collect = orders.filter(order => order._id !== id)
                     setorders(collect)
@@ -26,7 +26,7 @@ const MyOrders = () => {
     // data load by email
     const { user } = useAuth()
     useEffect(() => {
-        fetch(`https://enigmatic-earth-69756.herokuapp.com/order/${user.email}`).then(res => res.json()).then(data => setorders(data))
+        fetch(`https://travelmama.onrender.com/order/${user.email}`).then(res => res.json()).then(data => setorders(data))
     }, [])
 
     return (

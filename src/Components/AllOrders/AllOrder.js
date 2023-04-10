@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Container, Modal, Table, Button } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { Button, Container, Modal, Table } from 'react-bootstrap';
+import './allorder.css';
 import deleImg from './icons8-delete-64.png';
 import updateImg from './icons8-update-64.png';
-import './allorder.css';
 
 const AllOrder = () => {
     const [orderData, setorderData] = useState([])
@@ -13,13 +13,13 @@ const AllOrder = () => {
     const handleClose = () => setShow(false);
     let count = 0;
     useEffect(() => {
-        fetch(`https://enigmatic-earth-69756.herokuapp.com/orders`).then(res => res.json()).then(data => setorderData(data))
+        fetch(`https://travelmama.onrender.com/orders`).then(res => res.json()).then(data => setorderData(data))
     }, [modifiid])
 
     const handleremove = (id) => {
         let check = window.confirm("Do U want to delete?");
         if (check) {
-            axios.delete(`https://enigmatic-earth-69756.herokuapp.com/order/${id}`).then(res => {
+            axios.delete(`https://travelmama.onrender.com/order/${id}`).then(res => {
                 if (res.data) {
                     const collect = orderData.filter(order => order._id !== id)
                     setorderData(collect);
@@ -32,7 +32,7 @@ const AllOrder = () => {
     const handleUpdate = (id) => {
         let check = window.confirm("Do U want to update?");
         if (check) {
-            axios.put(`https://enigmatic-earth-69756.herokuapp.com/orderUpdate/${id}`).then(res => {
+            axios.put(`https://travelmama.onrender.com/orderUpdate/${id}`).then(res => {
                 if (res.data.modifiedCount) {
                     setmodifiid(true)
                 }

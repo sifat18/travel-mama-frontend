@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Container, Modal, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { Button, Container, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import './newsite.css';
 import formPic from './looney-sign-up-form.png';
+import './newsite.css';
 const NewSite = () => {
     const { register, handleSubmit, reset } = useForm();
     const [show, setShow] = useState(false);
@@ -11,7 +11,7 @@ const NewSite = () => {
     const handleShow = () => setShow(true);
     const onSubmit = data => {
         reset('');
-        axios.post('https://enigmatic-earth-69756.herokuapp.com/sites', data).then(res => {
+        axios.post('https://travelmama.onrender.com/sites', data).then(res => {
             console.log(res.data);
             if (res.data) {
                 handleShow()
